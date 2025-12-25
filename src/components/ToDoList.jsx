@@ -1,7 +1,7 @@
-export default function ToDoList (props) {
+export default function ToDoList ({children}) {
     return(
         <ul>
-            {props.children}
+            {children}
         </ul>
     )
 }

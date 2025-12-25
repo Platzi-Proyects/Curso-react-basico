@@ -7,15 +7,21 @@ import CreateToDo from "./components/CreateToDo.jsx";
 
 function App() {
 
+    const all = [
+        {id: 1, title: "Hacer sopas"},
+        {id: 2, title: "Perros"},
+        {id: 3, title: "Lovometil"}
+    ]
+
   return (
     <main>
-        <TodoCounter />
+        <TodoCounter complete={10} total={100 } />
         <TodoSearch />
 
         <ToDoList>
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+            {all.map(i => (
+                <TodoItem key={i.id} title={i.title} />
+            ))}
         </ToDoList>
 
         <CreateToDo />

@@ -1,7 +1,7 @@
-export default function TodoItem () {
+export default function TodoItem ({title, id}) {
     return(
-        <li>
-            <h2>Tarea: Comprar Queso</h2>
+        <li key={id}>
+            <h2>Tarea: {title}</h2>
             <div>
                 <span>Hecho </span>
 
