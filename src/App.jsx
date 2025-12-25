@@ -14,6 +14,8 @@ function App() {
 
         <ToDoList>
             <TodoItem />
+            <TodoItem />
+            <TodoItem />
         </ToDoList>
 
         <CreateToDo />
