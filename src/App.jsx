@@ -1,32 +1,48 @@
 import './App.css'
-import TodoCounter from "./components/TodoCounter.jsx";
-import TodoSearch from "./components/TodoSearch.jsx";
-import ToDoList from "./components/ToDoList.jsx";
-import TodoItem from "./components/TodoItem.jsx";
-import CreateToDo from "./components/CreateToDo.jsx";
+import TotalCounter from "./components/TotalCounter.jsx";
+import {useState} from "react";
+import ItemsToDo from "./components/ItemsToDo.jsx";
+import ToDo from "./components/ToDo.jsx";
+import Search from "./components/Search.jsx";
+
+
+
 
 function App() {
+    const [searchValue, setSearchValue] = useState('')
 
-    const all = [
-        {id: 1, title: "Hacer sopas"},
-        {id: 2, title: "Perros"},
-        {id: 3, title: "Lovometil"}
-    ]
+    const [ar, setAr] = useState([
+        {id:1, title:"ADASDASD", completed:true},
+        {id:2, title:"gGG", completed:true},
+        {id:3, title:"3334", completed:true},
+        {id:4, title:"111", completed:true},
+        {id:5, title:"NUEVO", completed:false},
 
-  return (
-    <main>
-        <TodoCounter complete={10} total={100 } />
-        <TodoSearch />
+    ])
 
-        <ToDoList>
-            {all.map(i => (
-                <TodoItem key={i.id} title={i.title} />
-            ))}
-        </ToDoList>
 
-        <CreateToDo />
-    </main>
-  )
+
+    const total = ar.length
+    const totalCompleted = ar.filter(e => e.completed).length
+
+    return (
+        <main>
+            <TotalCounter
+                total={total}
+                totalCompleted={totalCompleted}
+            />
+            <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
+            <ItemsToDo>
+                {ar.map(todo => (
+                    <ToDo
+                        key={todo.title}
+                        text={todo.title}
+                    />
+                ))}
+            </ItemsToDo>
+        </main>
+    )
 }
 
 export default App;
+

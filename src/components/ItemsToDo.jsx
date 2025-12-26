@@ -1,4 +1,4 @@
-export default function ToDoList ({children}) {
+export default function ItemsToDo({children}){
     return(
         <ul>
             {children}
