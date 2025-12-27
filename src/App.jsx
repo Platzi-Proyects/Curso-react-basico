@@ -5,9 +5,6 @@ import ItemsToDo from "./components/ItemsToDo.jsx";
 import ToDo from "./components/ToDo.jsx";
 import Search from "./components/Search.jsx";
 
-
-
-
 function App() {
     const [searchValue, setSearchValue] = useState('')
 
@@ -17,10 +14,9 @@ function App() {
         {id:3, title:"3334", completed:true},
         {id:4, title:"111", completed:true},
         {id:5, title:"NUEVO", completed:false},
-
     ])
 
-
+    const equalSearch = ar.filter((ar) => ar.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) )
 
     const total = ar.length
     const totalCompleted = ar.filter(e => e.completed).length
@@ -33,10 +29,12 @@ function App() {
             />
             <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
             <ItemsToDo>
-                {ar.map(todo => (
+                {equalSearch.map(todo => (
                     <ToDo
-                        key={todo.title}
+                        key={todo.id}
+                        id={todo.id}
                         text={todo.title}
+                        setAr={setAr}
                     />
                 ))}
             </ItemsToDo>

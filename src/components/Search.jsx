@@ -15,7 +15,6 @@ export default function Search({ searchValue, setSearchValue}){
                     setSearchValue(event.target.value)
                 }}
             />
-            <p>{searchValue}</p>
         </>
     )
 }
